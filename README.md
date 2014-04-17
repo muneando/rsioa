@@ -19,7 +19,55 @@ CentOS6.4上で開発していきます。
 * PHP
 * CakePHP2
 
-Vagrant+VirtualBoxでの開発環境の提供を支援します。
+Vagrant+VirtualBoxでの開発環境の提供を支援します。開発環境は、Chefで構築できます。
+
+* Vagrant
+* Chef Client
+* Berkshelf
+
+
+## 開発環境の設置
+
+* Vagrant + Chef soloで開発環境を構築できます。
+
+  ```
+  $ berks install --path chef/cookbooks
+  $ vagrant up
+  ```
+
+## 開発環境にアクセス
+
+* ホスト側の/etc/hosts(WindowsならC:\Windows\System32\drivers\etc\hostsを管理者モードで編集) にIPアドレスとホスト名を追加します。
+
+  ```
+  192.168.33.15 rsioa
+  ```
+
+* Vagrantで仮想サーバーを起動します。同時にApache+PHP+MySQLの環境をインストールします。
+
+  ```
+  $ vagrant up
+  ```
+
+* phpMyAdminは次のような設定で使用可能です。
+
+  <table>
+    <tr>
+        <td>URL</td>
+        <td>http://rsioa/phpmyadmin/ </td>
+    </tr>
+     <tr>
+        <td>ID</td>
+        <td>root</td>
+    </tr>
+    <tr>
+        <td>パスワード</td>
+        <td>rsioa</td>
+    </tr>
+  </table>
+ 
+* http://rsioa/ で開発環境にアクセスできます。
+
 
 
 ## Evernoteのノートの準備
