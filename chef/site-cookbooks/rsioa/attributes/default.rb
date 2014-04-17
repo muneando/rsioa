@@ -16,13 +16,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-product_name = 'rsioa'
+product_name = 'cakephp'
 
 default['cakephp']['database']['host'] = 'localhost'
 default['cakephp']['database']['login'] = product_name
 default['cakephp']['database']['password'] = product_name
 default['cakephp']['database']['database'] = product_name
-default['cakephp']['database']['prefix'] = 'gr_'
+default['cakephp']['database']['prefix'] = ''
 default['cakephp']['database']['encoding'] = 'utf8'
 
 default['cakephp']['core']['debug'] = 2

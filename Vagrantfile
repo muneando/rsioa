@@ -3,9 +3,10 @@
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
+PRODUCT_NAME = "rsioa"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.hostname = "rsioa"
+  config.vm.hostname = PRODUCT_NAME
   config.vm.box = "centos64"
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
 
@@ -34,7 +35,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe     "php"
     chef.add_recipe     "php::module_mysql"
 
-    chef.add_recipe     "rsioa"
+    chef.add_recipe     PRODUCT_NAME
 
     chef.json = {
       :apache => {
@@ -42,12 +43,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :docroot_dir => '/vagrant'
       },
       :mysql => {
-        :server_root_password => "rsioa",
-        :server_repl_password => "rsioa",
-        :server_debian_password => "rsioa"
+        :server_root_password => PRODUCT_NAME,
+        :server_repl_password => PRODUCT_NAME,
+        :server_debian_password => PRODUCT_NAME
       },
       :php => {
         :timezone => 'Asia/Tokyo'
+      },
+      :cakephp => {
+        :core => {
+          :debug => 2
+        },
+        :database => {
+          :login => PRODUCT_NAME,
+          :password => PRODUCT_NAME,
+          :database => PRODUCT_NAME,
+        }
       }
     }
     end
