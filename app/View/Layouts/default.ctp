@@ -16,10 +16,10 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework');
+$cakeDescription = __d('rsioa', 'RSIOA: アパート入居状況情報サイト');
 ?>
-<!DOCTYPE html>
-<html>
+<?php echo $this->Html->docType('html5'); ?>
+<html lang="ja">
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -30,26 +30,28 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		echo $this->Html->meta('icon');
 
 		echo $this->fetch('meta');
+		echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'));
+		echo $this->fetch('css');
 		echo $this->Html->css('bootstrap.min');
 		echo $this->Html->css('bootstrap-responsive.min');
-		echo $this->fetch('css');
 		echo $this->fetch('script');
+		echo $this->Html->script('http://code.jquery.com/jquery.js');
 		echo $this->Html->script('bootstrap.min');
 	?>
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-		</div>
+		<header>
+		</header>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		<div id="footer">
+		<footer>
 			<?php echo __('Copyright &copy; 2014 And Works, Inc. All Rights Reserved.'); ?>
-		</div>
+		</footer>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>
