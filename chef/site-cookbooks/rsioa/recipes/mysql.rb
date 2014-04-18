@@ -39,3 +39,17 @@ execute "mysql-create-database" do
     command "/usr/bin/mysqladmin -u root --password=\"#{node['mysql']['server_root_password']}\" create #{node['cakephp']['database']['database']}"
     not_if "ls /var/lib/mysql/#{node['cakephp']['database']['database']}"
 end
+
+
+execute "mysql-create-tables" do
+    command "/usr/bin/mysql -u root --password=\"#{node['mysql']['server_root_password']}\" #{node['cakephp']['database']['database']} < /tmp/tables.sql"
+    action :nothing
+    not_if "ls /var/lib/mysql/#{node['cakephp']['database']['database']}/apartments"
+end
+ 
+cookbook_file "/tmp/tables.sql" do
+    owner "root"
+    group "root"
+    mode "0600"
+    notifies :run, "execute[mysql-create-tables]", :immediately
+end
