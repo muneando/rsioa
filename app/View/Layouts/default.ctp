@@ -31,12 +31,14 @@ $cakeDescription = __d('rsioa', 'RSIOA: アパート入居状況情報サイト'
 
 		echo $this->fetch('meta');
 		echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0'));
-		echo $this->fetch('css');
+
 		echo $this->Html->css('bootstrap.min');
 		echo $this->Html->css('bootstrap-responsive.min');
-		echo $this->fetch('script');
+		echo $this->fetch('css');
+
 		echo $this->Html->script('http://code.jquery.com/jquery.js');
 		echo $this->Html->script('bootstrap.min');
+		echo $this->fetch('script');
 	?>
 </head>
 <body>
@@ -44,15 +46,12 @@ $cakeDescription = __d('rsioa', 'RSIOA: アパート入居状況情報サイト'
 		<header>
 		</header>
 		<div id="content">
-
 			<?php echo $this->Session->flash(); ?>
-
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<footer>
 			<?php echo __('Copyright &copy; 2014 And Works, Inc. All Rights Reserved.'); ?>
 		</footer>
 	</div>
-	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>

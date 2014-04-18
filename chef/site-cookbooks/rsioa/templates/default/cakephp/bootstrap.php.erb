@@ -130,5 +130,10 @@ Cache::config('default', array('engine' => 'File', 'duration'=>600));
  *
  */
 
+Configure::write('Dispatcher.filters', array(
+		'AssetDispatcher',
+		'CacheDispatcher'
+	));
+
 CakePlugin::load('DebugKit');
 CakePlugin::load('TwitterBootstrap');
