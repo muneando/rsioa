@@ -3,7 +3,7 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Create Tables */
 
-CREATE TABLE apartmets
+CREATE TABLE apartments
 (
 	id int NOT NULL UNIQUE AUTO_INCREMENT,
 	name varchar(100) NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE rooms
 
 ALTER TABLE rooms
 	ADD FOREIGN KEY (apartment_id)
-	REFERENCES apartmets (id)
+	REFERENCES apartments (id)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
