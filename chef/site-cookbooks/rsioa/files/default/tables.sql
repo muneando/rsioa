@@ -18,7 +18,7 @@ CREATE TABLE rooms
 	id int NOT NULL UNIQUE AUTO_INCREMENT,
 	apartment_id int NOT NULL UNIQUE,
 	room_no char(8) NOT NULL,
-	room_status enum('vacant','occupancy') NOT NULL,
+	room_status char NOT NULL,
 	created datetime NOT NULL,
 	modified datetime NOT NULL,
 	PRIMARY KEY (id)

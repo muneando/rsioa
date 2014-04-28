@@ -113,7 +113,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2014-04-17 18:52:37</creation_date>
-			<updated_date>2014-04-19 14:30:41</updated_date>
+			<updated_date>2014-04-28 18:16:01</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -250,10 +250,10 @@
 			<zerofill>false</zerofill>
 			<binary>false</binary>
 			<args>&apos;vacant&apos;,&apos;occupancy&apos;</args>
-			<description>vacant : 空部屋&#x0D;&#x0A;occupancy：入居済&#x0D;&#x0A;</description>
+			<description>1: 空部屋&#x0D;&#x0A;2: 入居済&#x0D;&#x0A;</description>
 			<logical_name>部屋状況</logical_name>
 			<physical_name>room_status</physical_name>
-			<type>enum</type>
+			<type>char</type>
 		</word>
 	</dictionary>
 	<tablespace_set>
@@ -512,7 +512,7 @@
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>enum</type>
+					<type>char</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
